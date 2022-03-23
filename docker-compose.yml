@@ -22,6 +22,8 @@ services:
       - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
       - 9090:9090
+    labels:
+      shipyard.route: '/'
     links:
       - cadvisor:cadvisor
       - alertmanager:alertmanager
@@ -94,6 +96,8 @@ services:
       - prometheus
     ports:
       - 3000:3000
+    labels:
+      shipyard.route: '/'
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
